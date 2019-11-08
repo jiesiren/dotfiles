@@ -12,3 +12,15 @@ alias lsa='ls -la'
 
 # (=^･ω･^=)
 alias cat='bat'
+
+# Parse git branch name for display in terminal prompt string
+function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# mkdir and cd into it
+function mkcdir {
+    mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+export PS1="🚀 \e[35m\u@\h\e[0m:\e[32m\$(parse_git_branch)\e[0m \W \$ "
