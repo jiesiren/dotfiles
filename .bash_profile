@@ -23,4 +23,4 @@ function mkcdir {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-export PS1="🚀 \e[35m\u@\h\e[0m:\e[32m\$(parse_git_branch)\e[0m \W \$ "
+export PS1="🚀 \[\e[35m\]\u@\h\[\e[0m\]:\[\e[32m\]\$(parse_git_branch)\[\e[0m\] \W \$ "
